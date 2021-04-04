@@ -8,7 +8,7 @@ struct TodoEntry {
 }
 
 #[derive(Template)]
-#[template(path = "index.html")]
+#[template(path = "index.html")] // askamaのためのアトリビュート
 struct IndexTemplate {
     entries: Vec<TodoEntry>,
 }
@@ -16,13 +16,13 @@ struct IndexTemplate {
 // enum for errors
 #[derive(Error, Debug)] //ここの中にEnumの親？スーパークラス的な何か？がある
 enum MyError {
-    #[error("Failed to render HTML")]
-    AskamaError(#[from] askama::Error),
+    #[error("Failed to render HTML")]   //これはなに？
+    MyAskamaError(#[from] askama::Error), //これはなに？　デフォルト実装？＋Askamaのエラー
 }
 
 impl ResponseError for MyError{}//Enumをインプリ？、ResponseErrorのデフォルト実装を使う
 
-#[get("/")]
+#[get("/")] //actix_rtが決めている、それのためのテンプレート
 async fn index() -> Result<HttpResponse, MyError>{
     let mut entries = Vec::new();
     entries.push(TodoEntry {
