@@ -1,8 +1,14 @@
-use actix_web::{get, App, HttpResponse, HttpServer};
+use actix_web::{get, App, HttpResponse, HttpServer,ResponseError};
+use thiserror::Error;
 
+// enum for errors
+#[derive(Error, Debug)] //ここの中にEnumの親？スーパークラス的な何か？がある
+enum MyError {}
+
+impl ResponseError for MyError{}//Enumをインプリ？、ResponseErrorのデフォルト実装を使う
 
 #[get("/")]
-async fn index() -> Result<HttpResponse, actix_web::Error>{
+async fn index() -> Result<HttpResponse, MyError>{
     let response_body = "Hello world!";
 
     Ok(HttpResponse::Ok().body(response_body))
