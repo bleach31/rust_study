@@ -117,7 +117,7 @@ Promise.all([mandelbrot]).then(async function ([{ generate_mandelbrot_set, draw_
     });
 
 
-    const N = 1000;
+    const N = 10;
     let jsResult = null;
     let wasmResult = null;
     {
