@@ -7,6 +7,7 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
 # cd mandelbrot
 # wasm-pack build
+#### npm init wasm-app www #初回のみ
 # cd www
 # npm install
 # npm run start

@@ -72,7 +72,7 @@ fn solve_inner(problem: Vec<u8>) -> Vec<u8>{
         }
 
         is_failing = false;
-        result[p] = v;
+        result[p] = v; 
         stack.push((true, p, v));
 
         // result[p+1]以降がすべて埋まっていれば探索終了
