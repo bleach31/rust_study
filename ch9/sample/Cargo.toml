@@ -1,0 +1,14 @@
+[package]
+name = "sample"
+version = "0.1.0"
+authors = ["Motohiro <c201075@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+uuid = "=0.8.1"
+
+[patch.crates-io]
+uuid = {path = "../uuid"}
+# uuid = {git = "http://example.com/my-account/uuid.git"}
