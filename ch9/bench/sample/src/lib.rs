@@ -1,5 +1,4 @@
-#![feature(test)] //含まれるアイテムに対して有効になるインナーアトリビュート
-
+//#![feature(test)] //含まれるアイテムに対して有効になるインナーアトリビュート
 pub fn hash(x: u64) -> u64 {
     let mut y = x;
     for _ in 0..512 {
@@ -11,6 +10,7 @@ pub fn hash(x: u64) -> u64 {
 
 #[cfg(test)] //次のアイテムに対して有効になるアウターアトリビュート
 mod tests {
+    /*
     extern crate test;
 
     use super::*;
@@ -23,4 +23,5 @@ mod tests {
             hash(2)
         });
     }
+    */
 }
