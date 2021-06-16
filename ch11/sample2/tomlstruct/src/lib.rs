@@ -3,7 +3,7 @@ use std::str::FromStr;
 
 #[proc_macro]
 pub fn tomlstruct(input: TokenStream) -> TokenStream {
-    dbg!(&input);
+    //dbg!(&input);
     let mut ret = String::from(""); //fromて何
 
     for token in input {
@@ -23,8 +23,8 @@ pub fn tomlstruct(input: TokenStream) -> TokenStream {
             }
             //"hello", 1.0
             TokenTree::Literal(x) => {
-                println!("{:?}",x);
-                println!("{}",x.to_string());
+                //println!("{:?}",x);
+                //println!("{}",x.to_string());
                 if x.to_string().starts_with('"'){
                     ret = format!("{}: String,",ret);
                 }else{
@@ -35,7 +35,7 @@ pub fn tomlstruct(input: TokenStream) -> TokenStream {
         }
     }
     ret = format!("{}\n}}",ret);
-    println!("{}",&ret);
+    //println!("{}",&ret);
     FromStr::from_str(&ret).unwrap()
 }
 
