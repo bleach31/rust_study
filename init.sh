@@ -13,3 +13,7 @@ curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 # npm run start
 
 # numberplace
+
+
+rustup toolchain install nightly
+cargo install cargo-expand
