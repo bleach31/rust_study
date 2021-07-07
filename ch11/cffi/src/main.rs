@@ -1,5 +1,6 @@
 extern "C" {
     fn c_hello();
+    fn c_fib(n: u32) -> u32;
 }
 
 fn main() {
@@ -8,5 +9,6 @@ fn main() {
 
     unsafe{
         c_hello();
+        println!("{}", c_fib(45));
     }
 }
